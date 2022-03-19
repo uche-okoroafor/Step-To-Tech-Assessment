@@ -4,17 +4,15 @@ const http = require('http')
 const express = require('express')
 const socketio = require('socket.io')
 const { notFound, errorHandler } = require('./middleware/error')
-const connectDB = require('./db')
 const { join } = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 
-const userRouter = require('./routes/user')
-const memberRouter = require('./routes/member')
+const mysqlDbRouter = require('./routes/mysqlDbRoute')
+const postgresqlDbRouter = require('./routes/postgresDbRoute')
 
 const { json, urlencoded } = express
 
-connectDB()
 const app = express()
 const server = http.createServer(app)
 
@@ -41,8 +39,8 @@ app.use((req, res, next) => {
   next()
 })
 
-app.use('/user', userRouter)
-app.use('/member', memberRouter)
+app.use('/mysql', mysqlDbRouter)
+app.use('/postgresql', postgresqlDbRouter)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '/client/build')))
