@@ -8,7 +8,7 @@ const conn = mysql.createConnection({
 conn.connect(function (err) {
   if (err) throw err
   console.log(
-    `MYSQL Connected: ${conn.config.host}:${conn.config.port}`.cyan.underline
+    `MYSQL Connected: ${conn.config.host}: ${conn.config.port}`.cyan.underline
       .bold
   )
 })
