@@ -3,7 +3,7 @@ import React from "react";
  *  <!-- Container -->
  *
  * @component
- * @param SignUpProps
+ * @param ContainerProps
  * @returns {JSX.Element}
  */
 
