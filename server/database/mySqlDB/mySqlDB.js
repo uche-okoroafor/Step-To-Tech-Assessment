@@ -13,6 +13,8 @@ conn.connect(function (err) {
   )
 })
 
+// create Schema
+
 const userTable = `CREATE TABLE if not exists user( id int primary key auto_increment,username VARCHAR(255),email VARCHAR(255),address VARCHAR(255), occupation VARCHAR(255))`
 const membersTable = `CREATE TABLE if not exists members( id int primary key auto_increment,name VARCHAR(255),email VARCHAR(255),address VARCHAR(255), occupation VARCHAR(255))`
 const teamsTable = `CREATE TABLE if not exists teams( id int primary key auto_increment,name VARCHAR(255),email VARCHAR(255),address VARCHAR(255), occupation VARCHAR(255))`
